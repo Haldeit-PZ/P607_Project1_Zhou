@@ -3,7 +3,7 @@
 ## Problem 1 (ODE): Radioactive Cross-Decay
 In this problem, a material is expected to decay into two other (or even more) forms of isotopes. We know that radioactive decay follows the simple ODE:
 
-## $\frac{dN}{dt} = -\lambda * N$
+## $\frac{dN}{dt} = -\lambda N$
 
 Solving the ODE, one yields:
 ## $N(t) = N(0)e^{-\lambda t}$
