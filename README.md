@@ -10,7 +10,7 @@ Solving the ODE, one yields:
 
 In this problem, one shall consider an element decaying into other elements in series in the form of A-B-C. In the above single case, the $N$ describes $N_A$ to be specifically, where nothing is decaying into sustance A. In the new case, if one were to consider the rate of change of substance B, there are two factors, where A decays into B, increasing number of B; On the other hand, B is decreasing as it decays to C. More specifically:
 
-## $\frac{dN_B}{dt} = \lambda_A N_A(t) - \lambda_B N_B(t) $
+## $\frac{dN_B}{dt} = \lambda_A N_A(t) - \lambda_B N_B(t)$
 
 In the case of cross-decay into two new substances. One will have total N = N1 + N2, where N1 = N2 = 0 at start. At the same time, 
 
