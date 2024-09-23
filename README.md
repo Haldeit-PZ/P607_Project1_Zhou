@@ -18,4 +18,9 @@ Here're some helpful (methods) functions:
 ### 1. Update the next set of mass A, B, and C. This method takes in the current set of A, B, C, change the substance with the decay rate (gammas are global variables) and return them.
 
 
-## Problem 2 (numerical): Moment of Inertia for a non-trivial symmetrical object
+## Problem 2 (numerical): Moment of Inertia for a non-trivial, not so symmetrical object (tetrahedron)
+
+More specifically, the moment of inertia has its axis defined going through one of its vertex, exiting at the center of the equilatteral trangle on the other side. One might define the pointing direction of vertex with the spinning axis going through as positive Z axis. The analytical solution follows:
+
+## $I_{ij} = \int \rho (r^2 \delta_{ij} - q_i q_j)d\tau$
+
