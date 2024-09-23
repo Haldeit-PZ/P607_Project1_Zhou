@@ -24,5 +24,5 @@ More specifically, the moment of inertia has its axis defined going through one 
 
 ## $I_{ij} = \int \rho(q_i,q_j,q_k) (r^2 \delta_{ij} - q_i q_j)d\tau$
 In the case if Z is spining axis:
-## $I_zz = \int\int\int \rho(x,y,z)(x^2+y^2+z^2 - z^2) dxdydz$ = \int\int\int \rho(x,y,z)(x^2+y^2)dxdydz
+## $I_zz = \int\int\int \rho(x,y,z)(x^2+y^2+z^2 - z^2) dx dy dz = \int\int\int \rho(x,y,z)(x^2+y^2)dx dy dz $
 
