@@ -14,7 +14,8 @@ In this problem, one shall consider an element decaying into other elements in s
 
 The setup of this problem begins with certain mass of substance A, B, the amount of substance A decreases as it decays into B; B gains mass from decayed A, and losses mass from decaying into C; C only gains mass. In the long run, C will dominate to be the majority. The function will perform a fixed amount of iterations using a for-loop, as substance mass of A will asymptomatically approach zero, quicker than mass B.
 
-Here're some helpful functions:
-1.
+Here're some helpful (methods) functions:
+### 1. Update the next set of mass A, B, and C. This method takes in the current set of A, B, C, change the substance with the decay rate (gammas are global variables) and return them.
+
 
 ## Problem 2 (numerical): Moment of Inertia for a non-trivial symmetrical object
