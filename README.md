@@ -1,6 +1,6 @@
 # Project 1 Overview
 
-## Problem 1 (ODE): Radioactive Cross-Decay
+## Problem 1 (ODE): Radioactive Compound-Decay
 We know that radioactive decay of  substance A-B follows the simple ODE:
 
 ## $\frac{dN_A}{dt} = -\lambda_A N_A(t)$
@@ -12,6 +12,9 @@ In this problem, one shall consider an element decaying into other elements in s
 
 ## $\frac{dN_B}{dt} = \lambda_A N_A(t) - \lambda_B N_B(t)$
 
-In the case of cross-decay into two new substances. One will have total N = N1 + N2, where N1 = N2 = 0 at start. At the same time, 
+The setup of this problem begins with certain mass of substance A, B, the amount of substance A decreases as it decays into B; B gains mass from decayed A, and losses mass from decaying into C; C only gains mass. In the long run, C will dominate to be the majority. The function will perform a fixed amount of iterations using a for-loop, as substance mass of A will asymptomatically approach zero, quicker than mass B.
+
+Here're some helpful functions:
+1.
 
 ## Problem 2 (numerical): Moment of Inertia for a non-trivial symmetrical object
