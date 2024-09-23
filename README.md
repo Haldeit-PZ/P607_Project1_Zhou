@@ -20,7 +20,9 @@ Here're some helpful (methods) functions:
 
 ## Problem 2 (numerical): Moment of Inertia for a non-trivial, not so symmetrical object (tetrahedron)
 
-More specifically, the moment of inertia has its axis defined going through one of its vertex, exiting at the center of the equilatteral trangle on the other side. One might define the pointing direction of vertex with the spinning axis going through as positive Z axis. The analytical solution follows:
+More specifically, the moment of inertia has its axis defined going through one of its vertex, exiting at the center of the equilatteral trangle on the other side. One might define the pointing direction of vertex with the spinning axis going through as positive Z axis. The I solution follows:
 
-## $I_{ij} = \int \rho (r^2 \delta_{ij} - q_i q_j)d\tau$
+## $I_{ij} = \int \rho(q_i,q_j,q_k) (r^2 \delta_{ij} - q_i q_j)d\tau$
+In the case if Z is spining axis:
+## $I_zz = \int\int\int \rho(x,y,z)(x^2+y^2+z^2 - z^2) dxdydz$ = \int\int\int \rho(x,y,z)(x^2+y^2)dxdydz
 
