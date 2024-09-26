@@ -11,6 +11,7 @@ Solving the ODE, one yields:
 In this problem, one shall consider an element decaying into other elements in series in the form of A-B-C. In the above single case, the $N$ describes $N_A$ to be specifically, where nothing is decaying into sustance A. In the new case, if one were to consider the rate of change of substance B, there are two factors, where A decays into B, increasing number of B; On the other hand, B is decreasing as it decays to C. More specifically:
 
 ## $\frac{dN_B}{dt} = \lambda_A N_A(t) - \lambda_B N_B(t)$
+## $\frac{dN_C}{dt} = \lambda_B N_B(t)$
 
 The setup of this problem begins with certain mass of substance A, B, the amount of substance A decreases as it decays into B; B gains mass from decayed A, and losses mass from decaying into C; C only gains mass. In the long run, C will dominate to be the majority. The function will perform a fixed amount of iterations using a for-loop, as substance mass of A will asymptomatically approach zero, quicker than mass B.
 
