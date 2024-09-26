@@ -28,14 +28,13 @@ if __name__ == "__main__":
     b_mass_list_euler = []
     c_mass_list_euler = []
 
+    a_mass_list_RK4 = []
+    b_mass_list_RK4 = []
+    c_mass_list_RK4 = []    
+
     a_mass_euler, a_mass_RK4 = a_mass, a_mass
     b_mass_euler, b_mass_RK4 = b_mass, b_mass
     c_mass_euler, c_mass_RK4 = c_mass, c_mass
-
-    
-    a_mass_list_RK4 = []
-    b_mass_list_RK4 = []
-    c_mass_list_RK4 = []
 
     t = np.arange(0, 100)
 
@@ -45,29 +44,58 @@ if __name__ == "__main__":
         c_mass_list_euler.append(c_mass_euler)
         a_mass_euler, b_mass_euler, c_mass_euler = update_mass_euler(a_mass_euler, b_mass_euler, c_mass_euler)
 
+        a_mass_list_RK4.append(a_mass_RK4)
+        b_mass_list_RK4.append(b_mass_RK4)
+        c_mass_list_RK4.append(c_mass_RK4)
+        a_mass_RK4, b_mass_RK4, c_mass_RK4 = update_mass_RK4(i, a_mass_RK4, b_mass_RK4, c_mass_RK4)
+
 
     b_max_t = np.array(b_mass_list_euler).argmax()
 
     plt.plot(t, a_mass_list_euler,
             color = '#007ba7', # cerulean
             marker = "None",
-            linestyle = "-.",
+            linestyle = ":",
             markersize = 3,
-            label = f"Substance A, rate: {a_rate}")
+            label = f"Substance A (Euler), rate: {a_rate}")
+    
     
     plt.plot(t, b_mass_list_euler,
             color = '#f6adc6', # Nadeshiko pink
             marker = "None",
-            linestyle = "-.",
+            linestyle = ":",
             markersize = 3,
-            label = f"Substance B, rate: {b_rate}")
+            label = f"Substance B (Euler), rate: {b_rate}")
     
     plt.plot(t, c_mass_list_euler,
             color = '#00ced1', # Dark turquoise
             marker = "None",
-            linestyle = "-.",
+            linestyle = ":",
             markersize = 3,
-            label = f"Substance C, rate: stable")
+            label = f"Substance C (Euler), rate: stable")
+    
+    
+    plt.plot(t, a_mass_list_RK4,
+            color = '#007ba7', # cerulean
+            marker = "None",
+            linestyle = "--",
+            markersize = 3,
+            label = f"Substance A (RK4), rate: {a_rate}")
+    
+    plt.plot(t, b_mass_list_RK4,
+            color = '#f6adc6', # Nadeshiko pink
+            marker = "None",
+            linestyle = "--",
+            markersize = 3,
+            label = f"Substance B (RK4), rate: {b_rate}")
+    
+    plt.plot(t, c_mass_list_RK4,
+            color = '#00ced1', # Dark turquoise
+            marker = "None",
+            linestyle = "--",
+            markersize = 3,
+            label = f"Substance C (RK4), rate: stable")
+    
     
     plt.vlines(b_max_t, 0, mass_max,
           color = '#343837', # charcoal
@@ -76,12 +104,12 @@ if __name__ == "__main__":
           label = f"B Max, at t = {b_max_t} [unit time]")
     
     
-    plt.title('Euler - Compound Decay - A->B->C')
+    plt.title('Compound Decay - A->B->C')
     plt.xlabel('Time [unit time]')
     plt.ylabel('Mass [unit mass]')
     plt.legend()
 
-    plot_destination = "figures/euler_overlapped.png"
+    plot_destination = "figures/euler-RK4_overlapped.png"
     plt.savefig(plot_destination)
 
     
