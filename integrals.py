@@ -7,6 +7,7 @@ h = 1                            # integral weight
 
 a_rate = 0.073                    # rate at which A decays into B (changeable)
 b_rate = 0.025                    # rate at which B decays into C (changeable)
+c_rate = 0
 
 ##############################
 ###### helper methods #######

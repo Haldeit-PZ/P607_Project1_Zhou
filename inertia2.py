@@ -33,9 +33,6 @@ if __name__ == "__main__":
     [1, side_length / np.sqrt(3), 0]          # base vertex 3, on forth quadrant of x-y plane
     ])
 
-    axis_point1 = np.array([0, 0, 0])                           # center of base, rotation axis bottom
-    axis_point2 = np.array([0, side_length / np.sqrt(3), 0])    # top vertex, rotation axis top, rotation around z axis
-
     riem_int_list = []
     trap_int_list = []
     simp_int_list = []
@@ -48,7 +45,7 @@ if __name__ == "__main__":
 
         num_divisions = i             # of integration steps per dimension
 
-        x_vals = np.linspace(-1, 1, num_divisions)          # integration meshing for x, y, z
+        x_vals = np.linspace(-1, 1, num_divisions)          # integration meshing for x, y, z, based on vertices
         y_vals = np.linspace(- side_length / np.sqrt(3) / 2, side_length / np.sqrt(3), num_divisions)
         z_vals = np.linspace(0, h, num_divisions)
 

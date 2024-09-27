@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from integrals import update_mass_euler, update_mass_RK4, f, f_total, a_rate, b_rate
+from integrals import update_mass_euler, update_mass_RK4, f, f_total, a_rate, b_rate, c_rate
 from scipy.integrate import solve_ivp
 
 # import time
@@ -142,21 +142,41 @@ if __name__ == "__main__":
     
 
     def a_analytical(time):
+        ''''
+        defines function of real solution to A
+            'time' -- current time
+        '''
         a_eval = a_mass * np.exp(-a_rate * time)
         return a_eval
     
     def b_analytical(time):
+        ''''
+        defines function of real solution to A
+            'time' -- current time
+        '''
         b_eval = (a_rate / (b_rate - a_rate)) * a_mass * (np.exp(-a_rate * time) - np.exp(-b_rate * time)) + b_rate * b_mass * np.exp(-b_rate * time)
         return b_eval
     
+    def c_analytical(time):
+        ''''
+        defines function of real solution to A
+            'time' -- current time
+        '''
+        c_eval = (b_rate / (c_rate - b_rate)) * b_mass * (np.exp(-b_rate * time) - np.exp(-c_rate * time)) + c_rate * c_mass * np.exp(-c_rate * time)
+    
     a_mass_list_analytical = []
     b_mass_list_analytical = []
+    c_mass_list_analytical = []
+
     for time in np.nditer(t):
         a_value = a_analytical(time)
         a_mass_list_analytical.append(a_value)
 
         b_value = b_analytical(time)
         b_mass_list_analytical.append(b_value)
+
+        c_value = c_analytical(time)
+        c_mass_list_analytical.append(c_value)
 
     plt.plot(t, a_mass_list_analytical,
             color = 'black',
@@ -171,6 +191,13 @@ if __name__ == "__main__":
             linestyle = "solid",
             markersize = 3,
             label = f"Substance B (Analytical), rate: {b_rate}")
+    
+    plt.plot(t, c_mass_list_analytical,
+            color = 'black',
+            marker = "None",
+            linestyle = "solid",
+            markersize = 3,
+            label = f"Substance C (Analytical), rate: {c_rate}")
 
     
     plt.title('Compound Decay - A->B->C')
