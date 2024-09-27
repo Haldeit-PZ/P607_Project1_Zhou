@@ -28,7 +28,6 @@ In the case if Z is spining axis:
 ## $I_zz = \int\int\int \rho(x,y,z)(x^2+y^2+z^2 - z^2) dx dy dz = \int\int\int \rho(x,y,z)(x^2+y^2)dx dy dz $
 
 # Running
-Please have $integrals.py, decay.py, and inertia.py$ under the same directory. $integrals.py$ has all the methods that needed to be imported into the other two (already done). While under the directory with these three files, please run in terminal: $python decay.py& or $python inertia.py$
+Please have $integrals.py, decay.py,$ and $inertia2.py$ under the same directory. $integrals.py$ has all the helper methods that needed to be imported into the other two (already done). While under the directory with these three files, please run in terminal: $python decay.py& or $python inertia2.py$ These two contain main methods to actually run the code. Additionally, please have a ./figures directory in under the same level with the above 3 to have figures saved.
 
-In this problem, one should numerically integrate through 3 dimensions using a for-loop. Namely, going through for each x within for each y within for each z. In this specific setup, a numerical integration can't rely on a mathematically experssed density function. Thus, one might take a easier way. In the case of a tetrahedron based on Z axis, each slice of Z yields a triangle, with side length decreases over height.
 
