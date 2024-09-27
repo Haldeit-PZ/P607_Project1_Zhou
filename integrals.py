@@ -1,8 +1,9 @@
+
 ##############################
 ###### global variables ##### 
 ##############################
 
-h = 2                            # integral weight
+h = 1                            # integral weight
 
 a_rate = 0.073                    # rate at which A decays into B (changeable)
 b_rate = 0.025                    # rate at which B decays into C (changeable)
@@ -13,18 +14,42 @@ b_rate = 0.025                    # rate at which B decays into C (changeable)
 
 def f(t, mass, rate):
     """
-    This method is the function of decay
+    This method is the function of decay, no minus sign
         't' - time, although not depended here
         'mass' - the dependent variable, or the mass
     """
     return mass * rate
 
+
+def f_total(t, masses):
+    """
+    This method is the function of decay of all
+        't' - time, although not depended here
+        'masses' - the dependent variable, unpacks into mass A, B, C
+    """
+    a_mass, b_mass, c_mass = masses
+    dadt = - a_mass * a_rate
+    dbdt = - b_mass * b_rate + a_mass * a_rate
+    dcdt = b_mass * b_rate
+    return  dadt, dbdt, dcdt
+
+'''
+
+def f_c(t, mass):
+    """
+    This method is the function of decay of C only
+        't' - time, although not depended here
+        'mass' - the dependent variable, or the mass
+    """
+    return mass * b_rate
+
+'''
+
+
 def update_mass_euler(a_mass, b_mass, c_mass):
     """
     This method takes current mass of three substance, update them and return using Euler's method
-        'a_mass' -- current mass of substance A
-        'b_mass' -- current mass of substance B
-        'c_mass' -- current mass of substance C
+        'i_mass' -- current mass of substance I
     """
     a_mass = a_mass - h * a_mass * a_rate
     b_mass = b_mass + h * (a_mass * a_rate - b_mass * b_rate)
@@ -35,9 +60,8 @@ def update_mass_euler(a_mass, b_mass, c_mass):
 def update_mass_RK4(t, a_mass, b_mass, c_mass):
     """
     This method takes current mass of three substance, update them and return using 4th order Runge Kutta's method
-        'a_mass' -- current mass of substance A
-        'b_mass' -- current mass of substance B
-        'c_mass' -- current mass of substance C
+        't' -- current iteration
+        'i_mass' -- current mass of substance I
     """
 
     k1_a_mass = f(t, a_mass, a_rate)
