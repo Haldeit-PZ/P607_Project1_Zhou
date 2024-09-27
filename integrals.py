@@ -81,3 +81,39 @@ def update_mass_RK4(t, a_mass, b_mass, c_mass):
     c_mass = c_mass + b_update
 
     return (a_mass, b_mass, c_mass)
+
+
+def riemann_rule(x_vals, y_vals, z_vals, dV, rho):
+        """
+        Calculate inertia of shape using Riemann Sum
+            'qi_vals' -- variable range of axis qi
+            'dv' -- small chunk of volume
+            'rho' -- shape density
+        """
+        I_riem = 0
+        for x in x_vals:
+            for y in y_vals:
+                for z in z_vals:
+                    r_sq = x ** 2 + y ** 2
+                    I_riem += r_sq * dV
+        return I_riem * rho
+
+
+def trapezoidal_rule(x_vals, y_vals, z_vals, dV, rho):
+        """
+        Calculate inertia of shape using trapezoidal rule
+            'qi_vals' -- variable range of axis qi
+            'dv' -- small chunk of volume
+            'rho' -- shape density
+        """
+        I_trap = 0
+        for i in range(len(x_vals) - 1):
+            for j in range(len(y_vals) - 1):
+                for k in range(len(z_vals) - 1):
+                    x = (x_vals[i] + x_vals[i+1]) / 2
+                    y = (y_vals[j] + y_vals[j+1]) / 2
+                    z = (z_vals[k] + z_vals[k+1]) / 2
+                    r_sq = x ** 2 + y ** 2
+                    I_trap += r_sq * dV
+        return I_trap * rho
+     
