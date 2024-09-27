@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from integrals import update_mass_euler, update_mass_RK4, f, f_total, a_rate, b_rate
 from scipy.integrate import solve_ivp
 
-import time
+# import time
 
 ##############################
 ###### global variables ##### 
