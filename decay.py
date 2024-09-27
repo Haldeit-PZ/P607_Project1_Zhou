@@ -140,6 +140,38 @@ if __name__ == "__main__":
             markersize = 3,
             label = f"Substance C (Scipy), rate: stable")
     
+
+    def a_analytical(time):
+        a_eval = a_mass * np.exp(-a_rate * time)
+        return a_eval
+    
+    def b_analytical(time):
+        b_eval = (a_rate / (b_rate - a_rate)) * a_mass * (np.exp(-a_rate * time) - np.exp(-b_rate * time)) + b_rate * b_mass * np.exp(-b_rate * time)
+        return b_eval
+    
+    a_mass_list_analytical = []
+    b_mass_list_analytical = []
+    for time in np.nditer(t):
+        a_value = a_analytical(time)
+        a_mass_list_analytical.append(a_value)
+
+        b_value = b_analytical(time)
+        b_mass_list_analytical.append(b_value)
+
+    plt.plot(t, a_mass_list_analytical,
+            color = 'black',
+            marker = "None",
+            linestyle = "solid",
+            markersize = 3,
+            label = f"Substance A (Analytical), rate: {a_rate}")
+    
+    plt.plot(t, b_mass_list_analytical,
+            color = 'black',
+            marker = "None",
+            linestyle = "solid",
+            markersize = 3,
+            label = f"Substance B (Analytical), rate: {b_rate}")
+
     
     plt.title('Compound Decay - A->B->C')
     plt.xlabel('Time [unit time]')
@@ -148,5 +180,7 @@ if __name__ == "__main__":
 
     plot_destination = "figures/euler-RK4_overlapped.png"
     plt.savefig(plot_destination, dpi=500)
+
+    plt.clf()
 
     
